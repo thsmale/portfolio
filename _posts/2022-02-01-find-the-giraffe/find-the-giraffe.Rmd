@@ -1,0 +1,71 @@
+---
+title: "Find the Giraffe"
+description: |
+  Refresh the page to play again.
+author:
+  - name: Tommy Smale
+date: 2022-02-01
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(shiny)
+```
+
+```{r include=TRUE}
+ui <- fluidPage(
+  tags$head(tags$script(src = "message-handler.js")),
+
+  actionButton(inputId = "button", label="Press to play"),
+  
+  mainPanel(textOutput("game"))
+)
+
+#Each render* function takes single argument: R expression surrounded by {} 
+server <- function(input, output) { 
+  observeEvent(input$button, {
+    fill_vector <- function(item, size) { 
+      size <- size*size
+      tiger <- c(seq(1, size)) 
+      for(i in seq(1, size)) { 
+       tiger[i] <- item
+      }
+    tiger 
+    }
+    size <- 12
+    tiger <- fill_vector('🐯', size) 
+    tiger <- matrix(tiger, nrow=size, ncol=size)
+    #Pick a random position to have a giraffe 
+    giraffe_position <- sample(seq(1,size*size))[1]
+    tiger[giraffe_position] <- '🦒'
+    output$game <- renderText({tiger})
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+```{r include=FALSE, echo=TRUE}
+fill_vector <- function(item, size) { 
+  size <- size*size
+  tiger <- c(seq(1, size)) 
+  for(i in seq(1, size)) { 
+    tiger[i] <- item
+  }
+  tiger 
+}
+size <- 12
+tiger <- fill_vector('🐯', size) 
+tiger <- matrix(tiger, nrow=size, ncol=size)
+#Pick a random position to have a giraffe 
+giraffe_position <- sample(seq(1,size*size))[1]
+tiger[giraffe_position] <- '🦒'
+tiger
+```
+
+
+

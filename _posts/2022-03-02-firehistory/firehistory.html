@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>California Fire History</title>
+
+  <meta property="description" itemprop="description" content="Analyzing official California Fire History data collected by government agencies dating back to the late 1800&#39;s. This is done using the R programming language."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-03-02"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-03-02"/>
+  <meta name="article:author" content="Tommy Smale"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="California Fire History"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Analyzing official California Fire History data collected by government agencies dating back to the late 1800&#39;s. This is done using the R programming language."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="California Fire History"/>
+  <meta property="twitter:description" content="Analyzing official California Fire History data collected by government agencies dating back to the late 1800&#39;s. This is done using the R programming language."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["California Fire History"]},{"type":"character","attributes":{},"value":["Analyzing official California Fire History data collected by government agencies dating back to the late 1800's. This is done using the R programming language. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Tommy Smale"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2022-03-02"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["firehistory_files/figure-html5/unnamed-chunk-10-1.png","firehistory_files/figure-html5/unnamed-chunk-27-1.png","firehistory_files/figure-html5/unnamed-chunk-37-1.png","firehistory_files/figure-html5/unnamed-chunk-38-1.png","firehistory_files/figure-html5/unnamed-chunk-4-1.png","firehistory_files/figure-html5/unnamed-chunk-42-1.png","firehistory_files/figure-html5/unnamed-chunk-44-1.png","firehistory_files/figure-html5/unnamed-chunk-45-1.png","firehistory_files/figure-html5/unnamed-chunk-46-1.png","firehistory_files/figure-html5/unnamed-chunk-47-1.png","firehistory_files/figure-html5/unnamed-chunk-48-1.png","firehistory_files/figure-html5/unnamed-chunk-49-1.png","firehistory_files/figure-html5/unnamed-chunk-50-1.png","firehistory_files/figure-html5/unnamed-chunk-52-1.png","firehistory_files/figure-html5/unnamed-chunk-53-1.png","firehistory_files/figure-html5/unnamed-chunk-54-1.png","firehistory_files/figure-html5/unnamed-chunk-55-1.png","firehistory_files/figure-html5/unnamed-chunk-9-1.png"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="firehistory_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="firehistory_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="firehistory_files/popper-2.6.0/popper.min.js"></script>
+  <link href="firehistory_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="firehistory_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="firehistory_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="firehistory_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="firehistory_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="firehistory_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="firehistory_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"California Fire History","description":"Analyzing official California Fire History data collected by government agencies dating back to the late 1800's. This is done using the R programming language.","authors":[{"author":"Tommy Smale","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-03-02T00:00:00.000-08:00","citationText":"Smale, 2022"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>California Fire History</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Analyzing official California Fire History data collected by government agencies dating back to the late 1800’s. This is done using the R programming language.</p></p>
+</div>
+
+<div class="d-byline">
+  Tommy Smale true 
+  
+<br/>2022-03-02
+</div>
+
+<div class="d-article">
+<h1 id="introduction">Introduction</h1>
+<p>California has had our largest fires in recorded history the last 2 years. Fires have had an effect on everyone in California weather it be due to air quality, or loss of property and loved ones. One school morning I woke up to a sky full of dark smoke, the smoke was so bad I could barely see down the block. Since that day in Chico there have been multiple other instances where smoke has blanketed the skies of California and ash has fallen from the skies. Smoke over the horizon is a terrible feeling as life as you know it can rapidly change without there being anything you can do about it. As a data science student, we are often just on our computer but we are learning complex skills which we can apply to the real world to make a difference. This project is a great opportunity to spend our time helping in the effort to solve current real world problems.</p>
+<h2 id="goal">Goal</h2>
+<p>I will be exploring this fire perimeter dataset to learn more about what measures cal fire is taking to combat fires. I would like to see if I can tell if any of these measures have been successful or unsuccessful. In addition I would like to see what is causing these fires in California. I would like to see just how many acres are burning and what areas have been affected the most.</p>
+<p>My initial data science questions are</p>
+<ol type="1">
+<li>What were some of the biggest fires in California history?</li>
+<li>Which agencies respond to the most fires?</li>
+<li>How long does it take for fires to be contained?</li>
+<li>What causes the biggest fires?</li>
+<li>Are certain causes of fires becoming more or less frequent?</li>
+<li>Can the fire cause be predicted?</li>
+<li>Is there a relationship between year and fire size?</li>
+<li>Are no burn days effective in preventing human caused fires?</li>
+<li>Can we calculate what troops are the busiest?</li>
+<li>Is there a linear relationship between fire size and duration?</li>
+</ol>
+<h2 id="about-the-dataset">About the dataset</h2>
+<p>I am using the 2020 California Fire Perimeters data set available from <a href="https://gis.data.ca.gov/datasets/e3802d2abf8741a187e73a9db49d68fe_0/explore?showTable=true">gis.data.gov</a>. A fire perimeter is the boundary of a fire measured by acres in this data set. This data set includes data from many different government agencies from different time periods. This data set includes prescribed burns and wildfire perimeters dating back to 1950 for CAL FIRE. Data from 2021 is not released until the fire season is over, which is on going at the time of this (Dec 18 2021). The United States Forest Service, USFS, has submitted records as far back as 1878 and the National Park Service, NPS, has submitted records from as far back as 1921. The types of fires included in this report has varied over the centuries which may add bias to the results. A couple important notes about the data is that from 1950 to 2001 it included USFS fires 10 acres and greater and CAL FIRE fires 300 acres and greater. BLM and NPS started inputting data since 2002 collecting fires 10 acres and greater. From 2002-2014 CAL FIRE expanded its criteria by including timber fires 10 acres or greater, brush fires 50 acres and greater, grass fires 300 acres and greater in size, wild land fires destroying 3 or more structures, and wild land fires causing 300,000 or more in damage. From 2014 and on the monetary requirement was dropped and the damage requirement is 3 or more habitable structures or commercial structures. In 1989 each unit was assigned to verify all 300 plus Acre fires from pre 1989 and as a result there is a statewide GIS layer from 1950-1999. Some errors that could occur when exploring this data is that duplicates may exist. For example, USFS and CAL FIRE could both capture the fire perimeter and submit it. In some cases they could even report different parameters of the same fire. While duplicate records is rare, there is an asterisk next to the cells that are the most accurate.</p>
+<h3 id="explanation-of-variables">Explanation of variables</h3>
+<ul>
+<li><code>YEAR</code> This set contains fire data from 1878 to 2020.</li>
+<li><code>STATE</code> While this data set is from CALFIRE there is some data from Oregon, Nevada, and Arizona. This data reports fires that occurred in both states, it does not specify the origin.</li>
+<li><code>AGENCY</code> Different services may respond to the fires depending on jurisdiction. These services provide data to Cal Fire as a courtesy Different values we may see are CDF for California Department of Forestry and Fire Protection (Cal Fire), United States Forest Service (USFS), Bureau of Land Management (BLM), National Park Service (NPS), Contract Country (CC), Other FED (Federal Fire Protection Agency).</li>
+<li><code>UNIT_ID</code> This is a series of digits to uniquely identify what units are responding to the fire.</li>
+<li><code>FIRE_NAME</code> Fires are often named for geographic location or nearby landmarks like roads, lakes, rivers, and mountains.</li>
+<li><code>INC_NUM</code> Number assigned by thee Emergency Command Center of the responsible agency for the fire.</li>
+<li><code>ALARM_DATE</code> The date the fire was brought to the attention of CALFIRE.</li>
+<li><code>CONT_DATE</code> The date the fire was contained. A fire is 100% contained when a perimeter has been formed around the fire that will prevent it from spreading beyond the line. To form the perimeter fire fighters may use trenches (normally 10-12 feet and shallow), natural barriers like rivers, or even already burned patches of land. Once a fire is contained it may still be burning but within the perimeter.</li>
+<li><code>CAUSE</code> An enumeration of values 1-19 for the reason the fire started. Enumeration 4 is campfire but enumeration 19 is illegal alien campfire which is confusing. Another confusing enumeration is 12 and 13 for firefighter training and non-firefighter training. Wouldn’t every fire that wasn’t firefighter training fall under this category of non-firefighter training. Interesting enumerations is 18 for escaped prescribed burn, 17 volcanic, 11 power line, 7 arson, 14 unknown, and 16 aircraft.</li>
+<li><code>COMMENTS</code> Miscellaneous comments that can provide more information about the fire.</li>
+<li><code>REPORT_AC</code> Estimated area consumed in fire reported in acres.</li>
+<li><code>GIS_ACRES</code> GIS is a geographic information system that uses information from satellites to make inferences. This is numerical data and the units are acres. Given the data is more complete for GIS_ACRES we will be working with this mostly.</li>
+<li><code>C_METHOD</code> The method used to collect perimeter data. C stands for collection here. This is a range of digits from 1-8 that can be GPS, infrared, photos, hand drawn, or mixed collection methods.</li>
+<li><code>OBJECTIVE</code> Either 1 suppression (wildfire) or 2 resource benefit (WFU). A WFU is allowing naturally ignited wild land fires like those started by lightning or lava to burn when in inaccessible terrain where people are not threatened. This is to avoid putting firefighters at risk and keep the land healthy.</li>
+<li><code>FIRE_NUM</code> This has no description and is unclear at the moment. It is probably a method used to identify fires. There is not much research on it either, this will mostly be ignored.</li>
+<li><code>SHAPE_Length</code> This is most likely GIS data. These map units are based on the coordinate system it could be square meters or something else. It could also be angular or linear.</li>
+<li><code>SHAPE_Area</code> The units are unknown.</li>
+</ul>
+<h2 id="discovery">Discovery:</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] &quot;The fire dataset dimensions are (21318, 17)&quot;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>missing_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>)</span><span class='op'>)</span>
+<span class='kw'>for</span><span class='op'>(</span><span class='va'>col</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span> 
+  <span class='va'>colname</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>)</span><span class='op'>[</span><span class='va'>col</span><span class='op'>]</span>
+  <span class='va'>nans</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>[</span>, <span class='va'>col</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>bad_strings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>''</span>, <span class='st'>' '</span>, <span class='st'>"UNKNOWN"</span>, <span class='st'>"UKNOWN"</span>, <span class='st'>"N/A"</span><span class='op'>)</span>
+  <span class='va'>bad_strings_count</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>[</span>, <span class='va'>col</span><span class='op'>]</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>bad_strings</span><span class='op'>)</span>
+  <span class='va'>zeros</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>[</span>, <span class='va'>col</span><span class='op'>]</span> <span class='op'>&lt;=</span> <span class='fl'>0</span><span class='op'>)</span>
+  <span class='va'>total</span> <span class='op'>&lt;-</span> <span class='fl'>0</span>
+  <span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>nans</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span> 
+    <span class='va'>total</span> <span class='op'>&lt;-</span> <span class='va'>nans</span> 
+  <span class='op'>}</span>
+  <span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>bad_strings_count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span> 
+    <span class='va'>total</span> <span class='op'>&lt;-</span> <span class='va'>total</span> <span class='op'>+</span> <span class='va'>bad_strings_count</span>
+  <span class='op'>}</span>
+  <span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>zeros</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span> 
+    <span class='va'>total</span> <span class='op'>&lt;-</span> <span class='va'>total</span> <span class='op'>+</span> <span class='va'>zeros</span>
+  <span class='op'>}</span>
+  <span class='va'>missing_data</span><span class='op'>[</span><span class='va'>col</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>total</span>
+<span class='op'>}</span>
+<span class='va'>missing_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>)</span>, <span class='va'>missing_data</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>missing_data</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Column"</span>, <span class='st'>"Num NA's, '', or &lt;= 0's"</span><span class='op'>)</span>
+<span class='va'>missing_data</span>
+</code></pre>
+</div>
+<pre><code>         Column Num NA&#39;s, &#39;&#39;, or &lt;= 0&#39;s
+1          year                      77
+2         state                       6
+3        agency                      10
+4       unit_id                      46
+5     fire_name                   13416
+6       inc_num                    1852
+7    alarm_date                   10728
+8     cont_date                   25360
+9         cause                      48
+10     comments                   36974
+11    report_ac                   12551
+12    gis_acres                       7
+13     c_method                   12222
+14    objective                     195
+15     fire_num                    8123
+16 shape_length                       0
+17   shape_area                   21317</code></pre>
+</div>
+<p>There are many ways to deal with missing data like ignoring it or changing them to the mean or median. It is important to not change the integrity of the data if you manipulate missing data. The majority of the NA’s are in columns report_ac and c_method which means I will use shape_area instead. The rest of the values mostly come from missing values like ’’. This does not matter so much for comments but is a concern for inc_num, alarm_date, cont_data, and fire_num. For fire_name, many of the “UNKNOWN” fire names may stem from small prescribed burns. This is something to keep in mind as I use this data and will check to see if those old values originate from the older data or not.</p>
+<h3 id="brief-summaries-of-every-variable">Brief summaries of every variable</h3>
+<strong>YEAR</strong>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] &quot;The range of years in the dataset is from 1878 to 2020&quot;</code></pre>
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+</div>
+<p>This graph does not prove that more fires are occurring every year because we do not know how accurate reporting is in the early 1900s. CAL FIRE has data set going back to 1950 but USFS has data from 1878 in here. The two years with the most amount of data is 2017 and 2020 which has had the worse fires in recent history.</p>
+<strong>STATE</strong>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:unnamed-chunk-5">Table 1: </span>Number of observations for each state</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">states</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">AZ</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CA</td>
+<td style="text-align: right;">21226</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NV</td>
+<td style="text-align: right;">73</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OR</td>
+<td style="text-align: right;">15</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>No fires that happened out of this state were under jurisdiction of Cal Fire which suggests these fires may have originated outside of California. These fires can be potentially misleading since the boundary can include both California and the other state. There is no way to determine what the boundary is for the California part of the fire.</p>
+<strong>AGENCY</strong>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:unnamed-chunk-8">Table 2: </span>Number of reports by each agency</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">agency</th>
+<th style="text-align: right;">num_fires</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USF</td>
+<td style="text-align: right;">9556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CDF</td>
+<td style="text-align: right;">6563</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CCO</td>
+<td style="text-align: right;">3222</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NPS</td>
+<td style="text-align: right;">1011</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BLM</td>
+<td style="text-align: right;">652</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DOD</td>
+<td style="text-align: right;">163</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LRA</td>
+<td style="text-align: right;">111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FWS</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BIA</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OTH</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Surprisingly the United States Forest Service has been in charge of more fires than CalFire. However, this is likely due to them reporting many smaller prescribed burns. I wonder who is in charge of more land, and how jurisdiction is delegated. Private (PVT) was an option in the official documentation but there appears to be no occurrences in this data set. It seems like the groups to pay the most attention to are BLM, CCO, CDF, LRA, NPS, and USF.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<p>We continue to see that the National Park Service has jurisdiction over more large fires than CAL Fire. Despite the increase of fires in recent years, the number of contracted counties in charge of fires has decreased. However, the Bureau of Land Management and National Park Service have been increasing their aid in combating California Fires.</p>
+<p><strong>UNIT_ID</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>out_of_state_units</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>state</span>, <span class='va'>unit_id</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span> <span class='op'>!=</span> <span class='st'>"CA"</span> <span class='op'>&amp;</span> <span class='va'>state</span> <span class='op'>!=</span> <span class='st'>""</span> <span class='op'>&amp;</span> <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>state</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='va'>unit_id</span> <span class='op'>!=</span> <span class='st'>''</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>in_state_units</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>state</span>, <span class='va'>unit_id</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span> <span class='op'>==</span> <span class='st'>"CA"</span> <span class='op'>&amp;</span> <span class='va'>state</span> <span class='op'>!=</span> <span class='st'>''</span> <span class='op'>&amp;</span> <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>state</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='va'>unit_id</span> <span class='op'>!=</span> <span class='st'>''</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='co'>#See if there are any units belonging to both states</span>
+<span class='va'>cross_state_units</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span> 
+<span class='kw'>for</span><span class='op'>(</span><span class='va'>row</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>in_state_units</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span> 
+  <span class='va'>unit</span> <span class='op'>&lt;-</span> <span class='va'>in_state_units</span><span class='op'>[</span><span class='va'>row</span>, <span class='st'>"unit_id"</span><span class='op'>]</span>
+  <span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>out_of_state_units</span><span class='op'>[</span>, <span class='st'>"unit_id"</span><span class='op'>]</span> <span class='op'>==</span> <span class='va'>unit</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>{</span> 
+    <span class='va'>cross_state_units</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>cross_state_units</span>, <span class='va'>unit</span><span class='op'>)</span>
+    <span class='op'>}</span>
+<span class='op'>}</span>
+<span class='va'>cross_state_units_df</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>unit_id</span> <span class='op'>==</span> <span class='va'>cross_state_units</span> <span class='op'>&amp;</span> <span class='va'>state</span> <span class='op'>!=</span> <span class='st'>''</span> <span class='op'>&amp;</span> <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>state</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>state</span>, <span class='va'>agency</span>, <span class='va'>unit_id</span>, <span class='va'>gis_acres</span>, <span class='va'>fire_name</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>state</span>, <span class='va'>agency</span>, <span class='va'>unit_id</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>gis_acres_total <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>unit_id</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>cross_state_units_df</span>, caption <span class='op'>=</span> 
+        <span class='st'>"The following units were responsible for fires in multiple states"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-12">Table 3: </span>The following units were responsible for fires in multiple states</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: left;">agency</th>
+<th style="text-align: left;">unit_id</th>
+<th style="text-align: right;">gis_acres_total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">BLM</td>
+<td style="text-align: left;">CCD</td>
+<td style="text-align: right;">1392.92076</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NV</td>
+<td style="text-align: left;">BLM</td>
+<td style="text-align: left;">CCD</td>
+<td style="text-align: right;">25.46643</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">USF</td>
+<td style="text-align: left;">HTF</td>
+<td style="text-align: right;">26751.67800</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NV</td>
+<td style="text-align: left;">USF</td>
+<td style="text-align: left;">HTF</td>
+<td style="text-align: right;">14267.09300</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">USF</td>
+<td style="text-align: left;">KNF</td>
+<td style="text-align: right;">235463.13349</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OR</td>
+<td style="text-align: left;">USF</td>
+<td style="text-align: left;">KNF</td>
+<td style="text-align: right;">476.97339</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">BLM</td>
+<td style="text-align: left;">NOD</td>
+<td style="text-align: right;">18492.59674</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NV</td>
+<td style="text-align: left;">BLM</td>
+<td style="text-align: left;">NOD</td>
+<td style="text-align: right;">17.40460</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">USF</td>
+<td style="text-align: left;">TMU</td>
+<td style="text-align: right;">3092.50918</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">USF</td>
+<td style="text-align: left;">TOI</td>
+<td style="text-align: right;">18235.83105</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NV</td>
+<td style="text-align: left;">USF</td>
+<td style="text-align: left;">TOI</td>
+<td style="text-align: right;">10366.60557</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The reason that there are some units in charge of fires in multiple states is because they belong to federal organizations like United States Forest Service or Bureau of Land Management.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>calfire_units_biggest_fire</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>agency</span> <span class='op'>==</span> <span class='st'>"CDF"</span> <span class='op'>&amp;</span> <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>unit_id</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.max</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>agency</span>, <span class='va'>unit_id</span>, <span class='va'>fire_name</span>, <span class='va'>gis_acres</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>calfire_units_biggest_fire</span>, caption<span class='op'>=</span><span class='st'>"CAL FIRE Units that Responded to the Top 10 Biggest Fires in California History"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-13">Table 4: </span>CAL FIRE Units that Responded to the Top 10 Biggest Fires in California History</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: left;">agency</th>
+<th style="text-align: left;">unit_id</th>
+<th style="text-align: left;">fire_name</th>
+<th style="text-align: right;">gis_acres</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2018</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">LNU</td>
+<td style="text-align: left;">RANCH</td>
+<td style="text-align: right;">410202.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">SCU</td>
+<td style="text-align: left;">SCU COMPLEX</td>
+<td style="text-align: right;">396399.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2007</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">SBC</td>
+<td style="text-align: left;">ZACA</td>
+<td style="text-align: right;">240358.70</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2018</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">SHU</td>
+<td style="text-align: left;">CARR</td>
+<td style="text-align: right;">229651.41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1977</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">BEU</td>
+<td style="text-align: left;">MARBLE-CONE</td>
+<td style="text-align: right;">173333.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2007</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">MVU</td>
+<td style="text-align: left;">WITCH</td>
+<td style="text-align: right;">162070.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2018</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">BTU</td>
+<td style="text-align: left;">CAMP</td>
+<td style="text-align: right;">153335.56</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1990</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">TGU</td>
+<td style="text-align: left;">CAMPBELL</td>
+<td style="text-align: right;">131504.22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">CZU</td>
+<td style="text-align: left;">CZU LIGHTNING COMPLEX</td>
+<td style="text-align: right;">86553.46</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1985</td>
+<td style="text-align: left;">CDF</td>
+<td style="text-align: left;">SLU</td>
+<td style="text-align: left;">LAS PILITAS</td>
+<td style="text-align: right;">84271.42</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I would like to calculate the busiest years for each unit, however an accurate way of calculating this is stopping me. Factors to consider are center, spread, range, count, and max fires for each unit every year. I need a function that will return the hardest year based off this data.</p>
+<strong>FIRE_NAME</strong>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#There's still other bad fire names in the data set</span>
+<span class='va'>bad_fire_names</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"UNKNOWN"</span>, <span class='st'>"N/A"</span>, <span class='st'>""</span>, <span class='st'>"UKNOWN"</span>, <span class='st'>" "</span><span class='op'>)</span>
+<span class='va'>popular_fire_names</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>fire_name</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='op'>!</span><span class='op'>(</span><span class='va'>fire_name</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>bad_fire_names</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>fire_name</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span>name<span class='op'>=</span><span class='st'>"count"</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>popular_fire_names</span>, caption<span class='op'>=</span><span class='st'>"10 Most Popular Names for Fires"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-16">Table 5: </span>10 Most Popular Names for Fires</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">fire_name</th>
+<th style="text-align: right;">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CANYON</td>
+<td style="text-align: right;">45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RIVER</td>
+<td style="text-align: right;">39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LAKE</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CREEK</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COTTONWOOD</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BEAR</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RIDGE</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RANCH</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SPRING</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PINE</td>
+<td style="text-align: right;">27</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>biggest_fire_names</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>fire_name</span>, <span class='va'>gis_acres</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>biggest_fire_names</span>, caption<span class='op'>=</span><span class='st'>"Top 5 Biggest Fires in California History and their Names"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-17">Table 6: </span>Top 5 Biggest Fires in California History and their Names</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: left;">fire_name</th>
+<th style="text-align: right;">gis_acres</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">AUGUST COMPLEX FIRES</td>
+<td style="text-align: right;">1032699.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2002</td>
+<td style="text-align: left;">BISCUIT</td>
+<td style="text-align: right;">501082.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2018</td>
+<td style="text-align: left;">RANCH</td>
+<td style="text-align: right;">410202.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">SCU COMPLEX</td>
+<td style="text-align: right;">396399.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">CREEK</td>
+<td style="text-align: right;">379882.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] &quot;A moment of condolences for anyone affected by the Camp Fire in Paradise or any other fire.&quot;</code></pre>
+<pre><code>  fire_name year unit_id gis_acres alarm_date  cont_date
+1      CAMP 2018     BTU  153335.6 2018-11-08 2018-11-26</code></pre>
+</div>
+<p>Fire names are not unique and there are some fires that share the same name. There are many fire names that have been entered in incorrectly, that also contain back slashes or other gibberish.</p>
+<p><strong>ALARM_DATE</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>new_dates</span> <span class='op'>&lt;-</span> <span class='va'>fires</span>
+<span class='va'>new_dates</span><span class='op'>$</span><span class='va'>alarm_date</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>new_dates</span><span class='op'>$</span><span class='va'>alarm_date</span>, <span class='st'>"%Y/%m/%d"</span><span class='op'>)</span>
+<span class='va'>new_dates</span><span class='op'>$</span><span class='va'>cont_date</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>new_dates</span><span class='op'>$</span><span class='va'>cont_date</span>, <span class='st'>"%Y/%m/%d"</span><span class='op'>)</span>
+<span class='va'>busiest_days</span> <span class='op'>&lt;-</span> <span class='va'>new_dates</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>alarm_date</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>alarm_date</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>num_fires <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>, 
+            mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span>, 
+            median <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span>, 
+            sd<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>num_fires</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>busiest_days</span>, caption<span class='op'>=</span><span class='st'>"Top 5 Number of Daily Fires Since 1878"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-22">Table 7: </span>Top 5 Number of Daily Fires Since 1878</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">alarm_date</th>
+<th style="text-align: right;">num_fires</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">median</th>
+<th style="text-align: right;">sd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2008-06-21</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">5178.631</td>
+<td style="text-align: right;">245.33860</td>
+<td style="text-align: right;">16386.395</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1987-08-30</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">8144.967</td>
+<td style="text-align: right;">1932.24430</td>
+<td style="text-align: right;">13913.601</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2003-09-03</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">515.189</td>
+<td style="text-align: right;">58.68177</td>
+<td style="text-align: right;">1629.138</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2015-07-30</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">4250.587</td>
+<td style="text-align: right;">389.58737</td>
+<td style="text-align: right;">10438.913</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1999-08-23</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">7053.712</td>
+<td style="text-align: right;">1571.95800</td>
+<td style="text-align: right;">19095.666</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>It is hard to imagine that 122 fires are logged on June 6 even if it is a summer day. Before I analyze more time’s, lets find out the meaning behind this. One explanation is it could be a bunch of controlled burns. Many of these did share the same inc_number. However, many had different names and containment dates. While the primary cause on July 30, 2015 for lots of fires was smoking, on July 6, 2008 it was just lots of lightning.</p>
+<strong>CONT_DATE</strong>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>format</span> <span class='op'>&lt;-</span> <span class='st'>"%Y/%m/%d %H:%M:%S %z"</span>
+<span class='va'>longest_fires</span> <span class='op'>&lt;-</span> <span class='va'>new_dates</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>fire_name</span>, <span class='va'>alarm_date</span>, <span class='va'>cont_date</span>, <span class='va'>cause</span>, <span class='va'>objective</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>alarm_date</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>cont_date</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>fire_duration <span class='op'>=</span> 
+           <span class='fu'><a href='https://rdrr.io/r/base/difftime.html'>difftime</a></span><span class='op'>(</span><span class='va'>cont_date</span>, <span class='va'>alarm_date</span>, <span class='va'>format</span>, units<span class='op'>=</span><span class='st'>"days"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>fire_duration</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>longest_fires</span>, caption<span class='op'>=</span><span class='st'>"Longest Lasting Fires in California History Since 1878"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-23">Table 8: </span>Longest Lasting Fires in California History Since 1878</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">fire_name</th>
+<th style="text-align: left;">alarm_date</th>
+<th style="text-align: left;">cont_date</th>
+<th style="text-align: right;">cause</th>
+<th style="text-align: right;">objective</th>
+<th style="text-align: left;">fire_duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PIUTE</td>
+<td style="text-align: left;">1990-08-13</td>
+<td style="text-align: left;">1999-09-14</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">3319 days</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RALSTON</td>
+<td style="text-align: left;">2006-09-05</td>
+<td style="text-align: left;">2007-09-17</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">377 days</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WESTLAKE</td>
+<td style="text-align: left;">2006-07-08</td>
+<td style="text-align: left;">2007-07-09</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">366 days</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LAVAL</td>
+<td style="text-align: left;">2012-06-03</td>
+<td style="text-align: left;">2013-06-03</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">365 days</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GORGE</td>
+<td style="text-align: left;">2018-08-19</td>
+<td style="text-align: left;">2019-08-19</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">365 days</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PANTHER</td>
+<td style="text-align: left;">2013-05-01</td>
+<td style="text-align: left;">2013-12-09</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">222 days</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">POWERHOUSE</td>
+<td style="text-align: left;">2013-05-30</td>
+<td style="text-align: left;">2013-12-18</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">202 days</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LAKE</td>
+<td style="text-align: left;">2015-06-17</td>
+<td style="text-align: left;">2015-12-31</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">197 days</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ROSASCO</td>
+<td style="text-align: left;">2019-05-23</td>
+<td style="text-align: left;">2019-12-02</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">193 days</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PONY</td>
+<td style="text-align: left;">2016-06-07</td>
+<td style="text-align: left;">2016-12-15</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">191 days</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In the data set there are some alarm_dates and cont_dates entered incorrectly, like the cont_date occurring before the alarm_date. Hence, there is a possibility that these results have also been entered in incorrectly. The reason that some of these fires last so long, is that fire responders allow it, because it is in a rural area and fires can be beneficial. The cause for most of these fires is lightning, unknown, or miscellaneous.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p>[1] “Fire Duration (Hours) Summary Statistics” Min. 1st Qu. Median Mean 3rd Qu. Max. 24 24 72 368 288 8760</p>
+</div>
+<p>A problem is that there are so many missing values in cont_date there are very few fires you can find the fire duration for relative to the whole data set. Among those available, there is a huge variance in the duration of fires. These shorter lasting fires are not just prescribed burns and have many different causes.</p>
+<strong>CAUSE</strong>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:unnamed-chunk-25">Table 9: </span>Causes of the Biggest Fires on Average since 1878</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">cause</th>
+<th style="text-align: left;">string_cause</th>
+<th style="text-align: right;">avg_size</th>
+<th style="text-align: right;">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Campfire</td>
+<td style="text-align: right;">3530.47878</td>
+<td style="text-align: right;">380</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Lightning</td>
+<td style="text-align: right;">2969.34811</td>
+<td style="text-align: right;">3454</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">Aircraft</td>
+<td style="text-align: right;">2474.22459</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Miscellaneous</td>
+<td style="text-align: right;">2285.43451</td>
+<td style="text-align: right;">3379</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Arson</td>
+<td style="text-align: right;">2200.11588</td>
+<td style="text-align: right;">903</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Vehicle</td>
+<td style="text-align: right;">1534.41743</td>
+<td style="text-align: right;">454</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">Unknown/Unidentified</td>
+<td style="text-align: right;">1496.36036</td>
+<td style="text-align: right;">9541</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Equipment Use</td>
+<td style="text-align: right;">1460.92934</td>
+<td style="text-align: right;">1246</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Power Line</td>
+<td style="text-align: right;">1274.56765</td>
+<td style="text-align: right;">412</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Railroad</td>
+<td style="text-align: right;">1169.29763</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Smoking</td>
+<td style="text-align: right;">1048.65940</td>
+<td style="text-align: right;">342</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">Non-Firefighter Training</td>
+<td style="text-align: right;">1013.68027</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Debris</td>
+<td style="text-align: right;">875.22631</td>
+<td style="text-align: right;">723</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Playing with Fire</td>
+<td style="text-align: right;">657.54545</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Escaped Prescribed Burn</td>
+<td style="text-align: right;">623.48734</td>
+<td style="text-align: right;">90</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Firefighter Training</td>
+<td style="text-align: right;">594.01999</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Structure</td>
+<td style="text-align: right;">391.06574</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Illegal Alien Campfire</td>
+<td style="text-align: right;">83.46374</td>
+<td style="text-align: right;">17</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As I previously mentioned, the reason some fires duration is so long is because they are in remote areas and allowed to continue to burn. Despite this, human induced fires like campfires, still produce bigger fires on average than nature induced fires like lightning. In the next sections we will explore if certain causes of fires are becoming more or less frequent.</p>
+<p><strong>COMMENTS</strong></p>
+<p>The max length of a comment is 260 characters, comments are longer but they are cut off by an * indicating there is more to that comment somewhere. By reading comments interesting ones to me were “The cause was target shooting”, “… Total Cost 18,600,600”, “Children playing with fire”, and names of people. Most of the comments in the data set are empty.</p>
+<strong>GIS_ACRES</strong>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:unnamed-chunk-31">Table 10: </span>Highest Acres Burnage in California History since 1878</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">gis_acres</th>
+<th style="text-align: right;">square_miles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2020</td>
+<td style="text-align: right;">4159334.0</td>
+<td style="text-align: right;">6498.959</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2018</td>
+<td style="text-align: right;">1590431.2</td>
+<td style="text-align: right;">2485.049</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2017</td>
+<td style="text-align: right;">1424559.4</td>
+<td style="text-align: right;">2225.874</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2008</td>
+<td style="text-align: right;">1382462.2</td>
+<td style="text-align: right;">2160.097</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">1040224.3</td>
+<td style="text-align: right;">1625.350</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2003</td>
+<td style="text-align: right;">970479.3</td>
+<td style="text-align: right;">1516.374</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2002</td>
+<td style="text-align: right;">963898.5</td>
+<td style="text-align: right;">1506.091</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1987</td>
+<td style="text-align: right;">862910.9</td>
+<td style="text-align: right;">1348.298</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2012</td>
+<td style="text-align: right;">847714.6</td>
+<td style="text-align: right;">1324.554</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1999</td>
+<td style="text-align: right;">801137.0</td>
+<td style="text-align: right;">1251.777</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For reference 500,000 acres is equal to 780 square miles, a square mile being a square with each side being 1 mile in length!!! The size of Yosemite national park is 1169 square miles, and the size of New York is 302 square miles.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] &quot;Number of fire reports where the difference between report_ac and gis_acres is greater than 100: 1250&quot;</code></pre>
+</div>
+<p>There are many differences between REPORT_AC and GIS_ACRES. Many of the discrepancies come from the 2000s as well so it is not the fault of the older data. There is less missing data for GIS_ACRES so we will primarily be depending on this. There is the possibility of using REPORT_AC data if GIS_ACRES is missing and vice versa.</p>
+<p><strong>C_METHOD</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>get_mode</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>vec</span><span class='op'>)</span> <span class='op'>{</span> 
+  <span class='va'>frequencies</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>vec</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span><span class='op'>(</span>decreasing<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/strtoi.html'>strtoi</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>frequencies</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span> 
+
+<span class='va'>c_method_yr</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>c_method</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='va'>c_method</span> <span class='op'>!=</span> <span class='fl'>8</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>c_method <span class='op'>=</span> <span class='fu'>get_mode</span><span class='op'>(</span><span class='va'>c_method</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>year</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>year</span> <span class='op'>==</span> <span class='st'>"2020"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#Collection methods </span>
+<span class='va'>first_yr_c_method</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>c_method</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/drop_na.html'>drop_na</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>total_c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>$</span><span class='va'>c_method</span><span class='op'>)</span>
+<span class='va'>labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GPS Ground"</span>, <span class='st'>"GPS Air"</span>, <span class='st'>"Infared"</span>, <span class='st'>"Other Imagery"</span>, 
+            <span class='st'>"Photo Interpretation"</span>, <span class='st'>"Hand Drawn"</span>, <span class='st'>"Mixed Collection Tools"</span>,
+            <span class='st'>"Unknown"</span><span class='op'>)</span>
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>Method <span class='op'>=</span> <span class='va'>labels</span>, count <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span><span class='op'>(</span><span class='va'>total_c</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-37-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-38-1.png" width="624" /></p>
+</div>
+<p>Here we can see the transition of the most frequently used collection method as time goes on.</p>
+<strong>OBJECTIVE</strong>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:unnamed-chunk-39">Table 11: </span>Top 5 Biggest Wildfires in California since 1878</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: left;">fire_name</th>
+<th style="text-align: right;">gis_acres</th>
+<th style="text-align: right;">cause</th>
+<th style="text-align: right;">objective</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">AUGUST COMPLEX FIRES</td>
+<td style="text-align: right;">1032699.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2002</td>
+<td style="text-align: left;">BISCUIT</td>
+<td style="text-align: right;">501082.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2018</td>
+<td style="text-align: left;">RANCH</td>
+<td style="text-align: right;">410202.5</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">SCU COMPLEX</td>
+<td style="text-align: right;">396399.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">CREEK</td>
+<td style="text-align: right;">379882.2</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:unnamed-chunk-39">Table 11: </span>Top 5 Biggest Prescribed Burns since 1878</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: left;">fire_name</th>
+<th style="text-align: right;">gis_acres</th>
+<th style="text-align: right;">cause</th>
+<th style="text-align: right;">objective</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2008</td>
+<td style="text-align: left;">CLOVER</td>
+<td style="text-align: right;">15788.590</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2008</td>
+<td style="text-align: left;">TEHIPITE</td>
+<td style="text-align: right;">11648.092</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1977</td>
+<td style="text-align: left;">FERGUSON</td>
+<td style="text-align: right;">10421.790</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2005</td>
+<td style="text-align: left;">COMB</td>
+<td style="text-align: right;">9756.467</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2010</td>
+<td style="text-align: left;">SHEEP COMPLEX</td>
+<td style="text-align: right;">9021.522</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As we saw previously with the longest lasting fires in recent history most of them originated from wildfires. It is interesting that the cause of the biggest prescribed fires have all been lightning. In fact, there are no prescribed burns that do not originate from lightning in this data set that has GIS_ACRES data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#Are number of prescribed burns increasing? </span>
+<span class='va'>yearly_resource_burns</span> <span class='op'>&lt;-</span> <span class='va'>resource</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span> <span class='op'>&amp;</span> <span class='va'>gis_acres</span> <span class='op'>&gt;</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>gis_acres</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>num_fires <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>, total_acres_burned <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> 
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-42-1.png" width="624" /></p>
+</div>
+<p>The number of acres burned in prescribed burns has never been lower until this last decade. At the same time, California has experienced some of the worst fires in the last decade. While correlation does not prove causation, poor fire management in the off season may explain the recent surge in fires.</p>
+<h4 id="exploratory-data-analysis">Exploratory Data Analysis</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Number of acres burned 2010-2020</span>
+<span class='va'>decade_fires</span> <span class='op'>&lt;-</span> <span class='va'>fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>gis_acres</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>year</span> <span class='op'>&gt;=</span> <span class='st'>"2010"</span> <span class='op'>&amp;</span> <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>decade_fires_sum</span> <span class='op'>&lt;-</span> <span class='va'>decade_fires</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'><a href='https://modelr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>gis_acres <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>decade_fires_sum</span><span class='op'>$</span><span class='va'>gis_acres</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>decade_fires_sum</span><span class='op'>$</span><span class='va'>gis_acres</span><span class='op'>)</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>decade_fires_sum</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat<span class='op'>=</span><span class='st'>"identity"</span>, fill<span class='op'>=</span><span class='st'>"gray70"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>gis_acres</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Years"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Acres Burned"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"Number of Acres Burned 2010-2020"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-44-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-45-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-46-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-47-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-48-1.png" width="624" /></p>
+</div>
+<p>Arson does not have much statistical analysis, it is just surprising how much land is burned every year due to this crime.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-49-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-50-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-52-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-53-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-54-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="firehistory_files/figure-html5/unnamed-chunk-55-1.png" width="624" /></p>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>The biggest discovery is that the number of prescribed burns has never been lower from 2010-2020 in recent California Fire History. This may be cause for why we have seen such a big spike in fires in recent history. Also, R’s ggplot makes it extremely difficult to customize your graph.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

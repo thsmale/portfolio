@@ -1,0 +1,44 @@
+---
+title: "iOS development"
+description: |
+  Swift is an open source programming language Apple uses for iOS, macOS, tvOS, and other devices. These examples are with UIKit a more mature and compatible framework than SwiftUI at the time of this writing (2022). This is programatically done in UIKit without the use of Storyboard. This approach was taken so that the app would run more efficiently and there would be more control over existing frameworks. 
+preview: swift_images/wrongpassword.png 
+author:
+  - name: Tommy Smale
+date: 2022-02-01
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### Using Apple Maps 
+![Apple Map](swift_images/applemaps.png)
+The application incorporates Apple's most up to date privacy guidelines. Certain features are available depending on the user's comfort level providing location data. If the user allows location, the map will focus on their current location.
+
+### Location Search Controller 
+![Search Bar](swift_images/mcdonalds.png)
+The user can enter in a location to annotate the map. The search controller uses data from Apple's MapKit to respond with real live locations data like address, lng/lat, and place name. The location data cheats and looks for locations nearest you. 
+
+### UIButton 
+![Password Authentication](swift_images/screenlock.png)
+This is a password protected application for encrypting information on your device. Once unlocked with your password the user has a UICollectionView to store data. 
+
+### Programming the constraints
+![Constraints](swift_images/constraints)
+Proper construction of constraints allows your application to scale to smaller devices like the iPhone 4 and bigger devices like the iPhone 10. The code for specifying the constraints for these 9 buttons is much more efficient than using storyboard for all 9 UIButtons. 
+
+### UITableViewController 
+![Table View Controller](swift_images/tableviewcontroller.png)
+A UITableViewController is one of the most frequently used ViewControllers alongise the ever more popular UICollectionView. This is a scrollable feed where user's can see their friends posts. 
+
+### Programming a UITableViewController
+![UITableViewController Code](swift_images/uitableviewcontroller_code.png)
+It is not that much code to programatically create a UITableViewController. However, there is another class for configuring the cell. The UITableViewCell class is a template that contains a UIImage and UITextView, but can be customized further. 
+
+
+
