@@ -1,0 +1,17 @@
+name: "ads-website-distill"
+title: "Portfolio"
+description: |
+  So people can see some programming projects
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Github"
+      href: https://www.github.com/thsmale
+    - text: "Linkedin"
+      href: https://www.linkedin.com/in/tommy-smale
+output: distill::distill_article
+theme: theme.css

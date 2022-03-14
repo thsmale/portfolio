@@ -1,0 +1,26 @@
+---
+title: "Tommy's Projects"
+description: |
+  Welcome to my portfolio! Click on the links to see demos.
+site: distill::distill_website
+listing: 
+  posts: 
+    - 2022-03-02-checkers
+    - 2022-03-12-td
+    - 2022-03-02-scout
+    - 2022-01-01-ios-dev
+    - 2022-03-02-firehistory
+    - 2022-03-13-react
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/dis
+
+```
+
