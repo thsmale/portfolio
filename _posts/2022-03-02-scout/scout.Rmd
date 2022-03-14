@@ -1,0 +1,46 @@
+---
+title: "Scout"
+description: |
+  A cross platform mobile app for iOS and Android devices. This project was built using the Flutter framework by Google. This is an application for ordering girl scout cookies and gives girl scouts a dashboad to control their inventory.
+preview: menu.png
+author:
+  - name: Tommy Smale
+    url: {}
+date: 2022-03-02
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### Launch Screen
+![Scout logo](launch_screen.png)
+
+### Cookie Menu
+![Cookie Menu](menu.png)
+A menu to browse cookies and add to your cart. When you are at the cart, you are can return to the menu and edit your order. Once you are finished with your order you are taken to a form to fill out cookie order information. 
+
+### Order Form
+![Order Form](form_validation.png)
+Information is verified to be correct like a valid phone number and email address. A drop down menu is expanded to select the proper state and only orders from the USA are currently accepted. 
+
+### Database
+![Database](order_database.png)
+This page fetches data from the database so the scout can view order information for their customers. 
+
+### Stats 
+![Graph](stats.png)
+Data visualizations to see trends in cookie sales and track inventory. 
+
+### Events
+![Event maker](events.png)
+Scouts have the ability to create events so people can be notified when and where they are selling cookies. 
+
+
+
+
+
