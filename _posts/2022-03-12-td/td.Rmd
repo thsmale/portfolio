@@ -1,7 +1,7 @@
 ---
 title: "Topological Data Analysis"
 description: |
-  Using techniques developed in topological data analysis to determine changes in weater patterns for Tahoe City, CA over the last 100 years. Implemented using libraries from C++ and python. 
+  Using techniques developed in topological data analysis to determine changes in weather patterns for Tahoe City, CA over the last 100 years. Implemented using libraries from C++ and python. 
 preview: report/rips.jpg
 author:
   - name: Tommy Smale
