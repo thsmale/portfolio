@@ -12,3 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 Hello there, I am a recent graduate from Chico State with a Bachelors of Science in Computer Science and a certificate in Data Science. John Wooden said "Sucess is peace of mind which is a direct result of self-satisfaction in knowing you made the effort to become the best of which you are capable." Building on top of the pyramid of success, I will add value to any team with my cooperation, alertness, team spirit, and poise. This means having utmost concern for what's right rather than who's right. To constantly be improving myself and the team while putting the team before myself. With an ability to work diligently under pressure and performing at my best every day, I will be a valueable member of your software engineering team. 
 
 ![Picture of me](tommy.jpg)
+
+## Skills
+
+![](skills_art.png)
