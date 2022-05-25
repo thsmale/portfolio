@@ -1,0 +1,416 @@
+---
+title: "Convolutions"
+description: |
+  Applying convolutions to images using a gaussian filter to achieve a blurring/smoothing effect as seen in applications like adobe or instagram.
+author:
+  - name: Tommy Smale
+    url: {}
+date: 2022-05-24
+output:
+  distill::distill_article:
+    self_contained: false
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(gridExtra)
+library(ggplot2)
+library(gridExtra)
+library(tidyverse)
+library(jpeg)
+library(plotly)
+library(reticulate)
+library(gsignal)
+library(grid)
+library(gridExtra)
+```
+
+# Intro
+
+Computer vision models like convolutional neural network's use image processing techniques to extract the important features from an image. One of the first steps is smoothing or blurring the image. This makes the distribution of the pixels closer to normal, which is an assumption of many statistical methods. In this post we will look into how to achieve a blurring effect of images as seen in instagram or adobe photoshop.    
+
+Images are represented in a computer using tensors or arrays. An image will be a matrix expressing its height, width, and number of components. The number of components determines if the image is colored or gray scale. Colored images may have 3 components, red, green, and blue. Gray scale images will have one component. The pixels in an image can range from [0, 1], [0, 255], or other options depending on it's configuration. 0 will mean the pixel has no red at that element and the max value like 1 will mean it's very red. 
+
+# Rotating images
+
+When building a computer vision model images can be taken at all angles. It is possible for the model to misclassify an image due to the image being taken at a strange angle. So a flexible model will take these edge cases into account. Here we are reading in an image and formatting as a 3 dimensional array. There are three components for red, green, and blue. Each component is a 2 dimensional array with width 159 and height 240. By using techniques like the transpose of a matrix we are able to rotate the image.
+
+```{r}
+#Clockwise rotations
+img <- readJPEG('images/mud.jpeg')
+dims <- dim(img)
+red <- img[,,1]
+green <- img[,,2]
+blue <- img[,,3]
+#90 degrees 
+#Reverse order of rows, take transpose
+r <- t(red[nrow(red):1,])
+g <- t(green[nrow(green):1,])
+b <- t(blue[nrow(blue):1,])
+ninety <- array(c(r, g, b), dim=c(dim(b), 3))
+#180 degrees 
+#Reverse order of rows and cols
+r <- red[nrow(red):1, ncol(red):1]
+g <- green[nrow(green):1, ncol(green):1]
+b <- blue[nrow(blue):1, ncol(blue):1]
+oneeighty <- array(c(r, g, b), dim=c(dim(b), 3))
+#270 degrees 
+#Take transpose, reverse column order
+r <- t(red)[ncol(red):1,]
+g <- t(green)[ncol(green):1,]
+b <- t(blue)[ncol(blue):1,]
+twoseventy <- array(c(r, g, b), dim=c(dim(b), 3))
+```
+
+```{r echo=FALSE}
+# Display new images
+# Layout new settings
+layout <- c(2,2)
+op <- par(
+  mar = c(1, 1, 1, 1),
+  mfrow = layout,
+  bty = "n",
+  omi = c(0, 0, 2, 0), 
+  oma = c(0, 0, 2, 0)
+)
+#First image
+dims <- dim(img)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+  main = "Original"
+)
+rasterImage(img, 0, 0, dims[1], dims[2], interpolate = FALSE)
+#Second image
+dims <- dim(ninety)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+  main = "90"
+)
+rasterImage(ninety, 0, 0, dims[1], dims[2], interpolate = FALSE)
+#Third image
+dims <- dim(oneeighty)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+  main = "180"
+)
+rasterImage(oneeighty, 0, 0, dims[1], dims[2], interpolate = FALSE)
+#Fourth image
+dims <- dim(twoseventy)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+  main = "270"
+)
+rasterImage(twoseventy, 0, 0, dims[1], dims[2], interpolate = FALSE)
+mtext(text="Clockwise Rotations", outer=TRUE, cex=1.5)
+par(op)
+```
+
+
+# Gaussian Smoothing
+
+A computer vision model tries different mathematical techniques to extract the most important information from an image. A common first step is smoothing the image which reduces it's noise. One way to do this is to apply a Gaussian filter. 
+
+```{r echo=FALSE}
+img <- readJPEG('images/noisy.jpeg')
+red <- img[,,1]
+green <- img[,,2]
+blue <- img[,,3]
+df <- data.frame(red=c(red), green=c(green), blue=c(blue))
+df <- pivot_longer(df, cols=c('red', 'green', 'blue'), names_to = 'color')
+dist <- ggplot(df, aes(x=value, group=color, colour=color)) + 
+  geom_density(kernel='gaussian') +
+  scale_color_manual(values=c('blue', 'green', 'red')) + 
+  ggtitle('Pixel Density')
+#Plot image and graph
+grid.arrange(rasterGrob(img), dist, nrow=2, 
+             top=textGrob("A Noisy Image"))
+```
+
+The distribution of this image is quite hectic so computer vision models will struggle to detect anything. There are many different peaks and skew. 
+
+```{r echo=FALSE}
+img <- readJPEG('images/my_noisy.jpeg')
+red <- img[,,1]
+green <- img[,,2]
+blue <- img[,,3]
+df <- data.frame(red=c(red), green=c(green), blue=c(blue))
+df <- pivot_longer(df, cols=c('red', 'green', 'blue'), names_to = 'color')
+dist <- ggplot(df, aes(x=value, group=color, colour=color)) + 
+  geom_density(kernel='gaussian') +
+  scale_color_manual(values=c('blue', 'green', 'red')) + 
+  ggtitle('Pixel Density')
+#Plot image and graph
+grid.arrange(rasterGrob(img), dist, nrow=2, 
+             top=textGrob("The Noisy Image Smoothed"))
+```
+
+After applying a 2d convolution to the image using a gaussian filter, we can see the distribution os the image is much closer to normal!  
+
+```{r echo=FALSE}
+#Kernel size 5
+gaussian2d_fixed <- function(x, y, weight) {
+  part1 <- 1 / (2*pi*(weight^2))
+  part2 <- exp(1)^((-(x^2+y^2))/(2*(weight^2)))
+  return(part1*part2)
+}
+x <- c(2, 1, 0, 1, 2,
+       2, 1, 0, 1, 2,
+       2, 1, 0, 1, 2,
+       2, 1, 0, 1, 2,
+       2, 1, 0, 1, 2)
+y <- c(2, 2, 2, 2, 2,
+       1, 1, 1, 1, 1,
+       0, 0, 0, 0, 0,
+       1, 1, 1, 1, 1,
+       2, 2, 2, 2, 2)
+sd <- 1.0
+k1 <- gaussian2d_fixed(x, y, sd)
+k2 <- gaussian2d_fixed(x, y, 3.0)
+```
+
+
+```{r echo=FALSE}
+#Blurs an image by applying 2d convolution with gaussian filter
+blur_rgb_img <- function(img, kernel) {
+  red <- img[,,1]
+  green <- img[,,2]
+  blue <- img[,,3]
+  r <- conv2(red, kernel, 'valid')
+  g <- conv2(green, kernel, 'valid')
+  b <- conv2(blue, kernel, 'valid')
+  rgb <- array(dim=c(dim(b), 3))
+  rgb[,,1] <- r
+  rgb[,,2] <- g
+  rgb[,,3] <- b
+  return(rgb)
+}
+```
+
+```{r echo=FALSE}
+#Plot 2 different examples of blured image with different weights
+noisy_og <- readJPEG('images/noisy.jpeg')
+noisy_blur <- blur_rgb_img(noisy_og, k1)
+noisy_blur5 <- blur_rgb_img(noisy_og, k2)
+dandelion_og <- readJPEG('images/dandelion.jpeg')
+dandelion_blur <- blur_rgb_img(dandelion_og, k1)
+dandelion_blur5 <- blur_rgb_img(dandelion_og, k2)
+layout <- c(3,2)
+op <- par(
+  mar = c(1, 1, 1, 1),
+  mfrow = layout,
+  bty = "n",
+  omi = c(0, 0, 0, 0), 
+  oma = c(0, 1, 2, 0)
+)
+#First image
+dims <- dim(noisy_og)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+)
+rasterImage(noisy_og, 0, 0, dims[1], dims[2], interpolate = FALSE)
+mtext("Original", side=2, cex=1)
+#Second image
+dims <- dim(dandelion_og)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+)
+rasterImage(dandelion_og, 0, 0, dims[1], dims[2], interpolate = FALSE)
+#Third image
+dims <- dim(noisy_blur)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+)
+rasterImage(noisy_blur, 0, 0, dims[1], dims[2], interpolate = FALSE)
+mtext("sd = 1", side=2, cex=1)
+#Fourth image
+dims <- dim(dandelion_blur)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+)
+rasterImage(dandelion_blur, 0, 0, dims[1], dims[2], interpolate = FALSE)
+#Fifth image
+dims <- dim(noisy_blur5)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+)
+rasterImage(noisy_blur5, 0, 0, dims[1], dims[2], interpolate = FALSE)
+mtext("sd = 3", side=2, cex=1)
+#Sixth image
+dims <- dim(dandelion_blur5)
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+)
+rasterImage(dandelion_blur5, 0, 0, dims[1], dims[2], interpolate = FALSE)
+mtext(text="Gaussian Smoothing", outer=TRUE, cex=1.5)
+par(op)
+```
+
+Smoothing the image is done by performing a 2d convolution. We set values in a 5x5 kernel using a Gaussian discrete approximation. We can see how adjusting the standard deviation of the Gaussian distribution affects the blur of the image. Next, we will explain what the Gaussian distribution is and later what a convolution is. 
+
+# Gaussian Distribution aka Normal Distribution
+
+When working with images, we will use a 2 dimensional Gaussian function.
+$$G(x, y) = \frac{1}{2\pi\sigma^2}e^\frac{x^2+y^2}{2\sigma^2}$$
+
+```{r}
+gaussian2d <- function(x, y) {
+  part1 <- 1 / (2*pi*sd(x*y)^2)
+  part2 <- exp(1)^((-(x^2+y^2))/(2*(sd(x*y)^2)))
+  return(part1*part2)
+}
+```
+
+```{r echo=FALSE}
+x <- y <- seq(-4, 4, .1)
+plot_ly(x=~x, y=~y, z=~outer(x, y, gaussian2d)) %>% 
+  add_surface() %>%
+  layout(title="2 Dimensional Gaussian Function") %>%
+  layout(xaxis=(list(fixedrange=TRUE))) %>%
+  layout(yaxis=(list(fixedrange=TRUE))) 
+```
+
+This is what a 2 dimensional Gaussian function looks like. The Gaussian function is a continuous function. So we must fit it to a discrete approximation in order to apply it over the image. This is done by taking advantage of the fact that 1, 2, and 3 standard deviations away from the center of the bell curve contain 68%, 95%, and 99.7% of the values in the Gaussian distribution. So we can get a pretty accurate kernel with just 3x3 or 5x5 dimensions.
+
+
+# Convolution
+
+Convolution is the process of applying the kernel over the original image. We place the anchor of kernel over every pixel in the image. Then perform a matrix multiplication with the kernel and the pixel's neighbors. After that, compute the sum of the products. The output of this value is the new pixel value in the transformed image. 
+
+### 2D convolution forumla 
+
+$$y[i, j] = \sum_{m=-\infty}^{\infty} \sum_{n=-\infty}^{m=\infty}h[m, n]*x[i-m,j-n]$$
+
+Here x is the input image and y is the output which is the new image. H is the kernel matrix. I and j iterate over the image while m and n deal with that of the kernel. 
+
+When applying a 2d convolution using a Gaussian filter it reduces the noise in the image. This gives the effect of blurring the image. One can do this in R using the following code. 
+
+```{r}
+#Make a kernel of size 3x3
+x <- c(1, 0, 1, 
+       1, 0, 1, 
+       1, 0, 1)
+y <- c(1, 1, 1,
+       0, 0, 0, 
+       1, 1, 1)
+sd <- 1.0
+#Fixed because we are setting the standard deviation
+kernel <- gaussian2d_fixed(x, y, sd)
+#Apply the convolution
+img <- readJPEG('images/noisy_lady.jpeg')
+blur <- conv2(img, kernel, 'valid')
+blur <- array(blur, dim=c(dim(blur)))
+```
+
+```{r echo=FALSE}
+#Plot the image
+op <- par(
+  mar = c(1, 1, 1, 1), #Set Margin
+  mfrow = c(1, 2), #Num of Images
+  bty = "n", #Plot no points/lines/etc
+  omi = c(0, 0, 0, 0), 
+  oma = c(0, 0, 2, 0) #Allocate room for title
+)
+dims <- dim(img)
+#Make a transparent background for image
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+)
+rasterImage(img, 0, 0, dims[1], dims[2], interpolate = FALSE)
+mtext(text="Original", line=1, cex=1.5)
+dims <- dim(blur)
+#Make a transparent background for image
+plot(
+  c(0, dims[1]),
+  c(dims[2], 0),
+  type = "n",
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  frame.plot = FALSE,
+)
+rasterImage(blur, 0, 0, dims[1], dims[2], interpolate = FALSE)
+mtext(text="Gaussian Filter 3x3", line=1, cex=1.5)
+par(op)
+```
+
+
+# Conclusion 
+
+Computer vision depends on mathematical formulas that are commonly found in statistics as well. Understanding these statistical and mathematical formulas can give one a deeper understanding of what the computer vision model is doing. I hope you found this application of the Gaussian distribution interesting! Next, we will look at other distributions and see their effect on images.  

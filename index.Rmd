@@ -6,7 +6,9 @@ site: distill::distill_website
 listing: 
   posts: 
     - 2022-03-02-checkers
+    - 2022-05-24-weathercollector
     - 2022-03-12-td
+    - 2022-05-24-convolutions
     - 2022-03-02-scout
     - 2022-03-02-firehistory
     - 2022-01-01-ios-dev
