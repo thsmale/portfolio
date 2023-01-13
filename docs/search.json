@@ -5,8 +5,8 @@
       "title": "About Me",
       "description": "Just a little bit. \n",
       "author": [],
-      "contents": "\nHello there, I am a recent graduate from Chico State with a Bachelors of Science in Computer Science and a certificate in Data Science. John Wooden said “Sucess is peace of mind which is a direct result of self-satisfaction in knowing you made the effort to become the best of which you are capable.” Building on top of the pyramid of success, I will add value to any team with my cooperation, alertness, team spirit, and poise. This means having utmost concern for what’s right rather than who’s right. To constantly be improving myself and the team while putting the team before myself. With an ability to work diligently under pressure and performing at my best every day, I will be a valueable member of your software engineering team.\nPicture of meSkills\n\n\n\n\n",
-      "last_modified": "2022-05-25T00:00:48-07:00"
+      "contents": "\nHello there, I am a recent graduate from Chico State with a Bachelors\nof Science in Computer Science and a certificate in Data Science. John\nWooden said “Sucess is peace of mind which is a direct result of\nself-satisfaction in knowing you made the effort to become the best of\nwhich you are capable.” Building on top of the pyramid of success, I\nwill add value to any team with my cooperation, alertness, team spirit,\nand poise. This means having utmost concern for what’s right rather than\nwho’s right. To constantly be improving myself and the team while\nputting the team before myself. With an ability to work diligently under\npressure and performing at my best every day, I will be a valueable\nmember of your software engineering team.\nPicture of meSkills\n\n\n\n\n",
+      "last_modified": "2023-01-13T02:25:13-08:00"
     },
     {
       "path": "index.html",
@@ -14,7 +14,7 @@
       "description": "Welcome to my portfolio! Click on the links to see demos.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-05-25T00:00:48-07:00"
+      "last_modified": "2023-01-13T02:25:14-08:00"
     }
   ],
   "collections": ["posts/posts.json"]
