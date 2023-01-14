@@ -89,7 +89,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
 <title>Portfolio: Weather Collector</title>
 
-<meta property="description" itemprop="description" content="An application that makes it easier for anyone to view and download over 1.4 billion rows of weather data from NOAA."/>
+<meta property="description" itemprop="description" content="A web application that makes it easier for anyone to visualize and download over 1.4 billion rows of weather data from NOAA. This dashboard was created using the R programming language."/>
 
 
 <!--  https://schema.org/Article -->
@@ -100,20 +100,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Portfolio: Weather Collector"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="An application that makes it easier for anyone to view and download over 1.4 billion rows of weather data from NOAA."/>
+<meta property="og:description" content="A web application that makes it easier for anyone to visualize and download over 1.4 billion rows of weather data from NOAA. This dashboard was created using the R programming language."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Portfolio"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Portfolio: Weather Collector"/>
-<meta property="twitter:description" content="An application that makes it easier for anyone to view and download over 1.4 billion rows of weather data from NOAA."/>
+<meta property="twitter:description" content="A web application that makes it easier for anyone to visualize and download over 1.4 billion rows of weather data from NOAA. This dashboard was created using the R programming language."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Weather Collector"]},{"type":"character","attributes":{},"value":["An application that makes it easier for anyone to view and download over 1.4 billion rows of weather data from NOAA."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Tommy Smale"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["https://weathercollector.shinyapps.io/capstone/"]}},"value":[{"type":"NULL"}]}]}]},{"type":"character","attributes":{},"value":["2022-05-24"]},{"type":"character","attributes":{},"value":["images/homescreen.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Weather Collector"]},{"type":"character","attributes":{},"value":["A web application that makes it easier for anyone to visualize and download over 1.4 billion rows of weather data from NOAA. This dashboard was created using the R programming language."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Tommy Smale"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["https://weathercollector.shinyapps.io/capstone/"]}},"value":[{"type":"NULL"}]}]}]},{"type":"character","attributes":{},"value":["2022-05-24"]},{"type":"character","attributes":{},"value":["images/homescreen.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2376,7 +2376,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Weather Collector","description":"An application that makes it easier for anyone to view and download over 1.4 billion rows of weather data from NOAA.","authors":[{"author":"Tommy Smale","authorURL":{"https://weathercollector.shinyapps.io/capstone/":{}},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-05-24T00:00:00.000-07:00","citationText":"Smale, 2022"}
+{"title":"Weather Collector","description":"A web application that makes it easier for anyone to visualize and download over 1.4 billion rows of weather data from NOAA. This dashboard was created using the R programming language.","authors":[{"author":"Tommy Smale","authorURL":{"https://weathercollector.shinyapps.io/capstone/":{}},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-05-24T00:00:00.000-07:00","citationText":"Smale, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2404,7 +2404,9 @@ d-appendix d-footnote-list a.footnote-backlink {
 <h1>Weather Collector</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>An application that makes it easier for anyone to view and download over 1.4 billion rows of weather data from NOAA.</p></p>
+<p><p>A web application that makes it easier for anyone to visualize and
+download over 1.4 billion rows of weather data from NOAA. This dashboard
+was created using the R programming language.</p></p>
 </div>
 
 <div class="d-byline">
@@ -2415,31 +2417,75 @@ d-appendix d-footnote-list a.footnote-backlink {
 
 <div class="d-article">
 <h1 id="intro">Intro</h1>
-<p>This will take you through a run down of using this application to compare weather data for a variety of different ski mountains. However, feel free to use the application yourself by clicking this link.</p>
+<p>This will take you through a run down of using this application to
+compare weather data for a variety of different ski mountains. However,
+feel free to use the application yourself by clicking this link.</p>
 <ul>
-<li><strong>Link to Application:</strong> <a href="https://weathercollector.shinyapps.io/capstone/" class="uri">https://weathercollector.shinyapps.io/capstone/</a></li>
+<li><strong>Link to Application:</strong> <a
+href="https://weathercollector.shinyapps.io/capstone/"
+class="uri">https://weathercollector.shinyapps.io/capstone/</a></li>
 </ul>
-<p>The purpose of this application is to provide easier access to publicly available weather data. NOAA, under the U.S. Department of Commerce has 1.4 billion and counting rows of weather data available to the public. However, accessing this data is very confined on it’s website. This application provides a solution to this by working directly with the NOAA API and giving user’s an alternative user interface.</p>
+<p>The purpose of this application is to provide easier access to
+publicly available weather data. NOAA, under the U.S. Department of
+Commerce has 1.4 billion and counting rows of weather data available to
+the public. However, accessing this data is very confined on it’s
+website. This application provides a solution to this by working
+directly with the NOAA API and giving user’s an alternative user
+interface.</p>
 <h1 id="finding-weather-stations">Finding Weather Stations</h1>
 <figure>
-<img src="images/homescreen.png" alt="Home Screen" /><figcaption aria-hidden="true">Home Screen</figcaption>
+<img src="images/homescreen.png" alt="Home Screen" />
+<figcaption aria-hidden="true">Home Screen</figcaption>
 </figure>
-<p>There are a variety of parameters to access NOAA stations. User’s attention will first be drawn to the map. Here user’s can view weather stations according to state and county. For more precise result’s user’s can search locations in the search bar. This is hooked up to the Google places API so user’s can search places like Sun Valley ski resort. The application will mark these locations with a red circle. User’s can click red and blue circles, then apply the radius filter to get all stations within a certain amount of miles from the station.</p>
-<p>Underneath the map the user is shown a list of stations present on the map. The user is able to see a summary of the stations. The summary includes information like the date range of data available for the station and the different kind of data sets available. This allows the user to be more informed about the kind of data the user can request. It is important for the user to know what data they are fetching because if they are getting Daily Summaries for Park City Utah, they will be fetching over 200,000 observations.</p>
+<p>There are a variety of parameters to access NOAA stations. User’s
+attention will first be drawn to the map. Here user’s can view weather
+stations according to state and county. For more precise result’s user’s
+can search locations in the search bar. This is hooked up to the Google
+places API so user’s can search places like Sun Valley ski resort. The
+application will mark these locations with a red circle. User’s can
+click red and blue circles, then apply the radius filter to get all
+stations within a certain amount of miles from the station.</p>
+<p>Underneath the map the user is shown a list of stations present on
+the map. The user is able to see a summary of the stations. The summary
+includes information like the date range of data available for the
+station and the different kind of data sets available. This allows the
+user to be more informed about the kind of data the user can request. It
+is important for the user to know what data they are fetching because if
+they are getting Daily Summaries for Park City Utah, they will be
+fetching over 200,000 observations.</p>
 <figure>
-<img src="images/data.png" alt="Data Table" /><figcaption aria-hidden="true">Data Table</figcaption>
+<img src="images/data.png" alt="Data Table" />
+<figcaption aria-hidden="true">Data Table</figcaption>
 </figure>
-<p>Here the user has successfully fetched weather data for a few ski mountains. The user is presented with a table which they can use to organize the data using a few different parameters. The left show’s the data they have fetched for, and modifying the contents of that panel will affect what is shown on the table. The user can download the data to perform their own data analysis.</p>
+<p>Here the user has successfully fetched weather data for a few ski
+mountains. The user is presented with a table which they can use to
+organize the data using a few different parameters. The left show’s the
+data they have fetched for, and modifying the contents of that panel
+will affect what is shown on the table. The user can download the data
+to perform their own data analysis.</p>
 <figure>
-<img src="images/graph.png" alt="Exploratory Data Analysis" /><figcaption aria-hidden="true">Exploratory Data Analysis</figcaption>
+<img src="images/graph.png" alt="Exploratory Data Analysis" />
+<figcaption aria-hidden="true">Exploratory Data Analysis</figcaption>
 </figure>
-<p>The user can then perform exploratory data analysis to visualize the data from within the application. They can use a variety of parameters to graph the data.</p>
+<p>The user can then perform exploratory data analysis to visualize the
+data from within the application. They can use a variety of parameters
+to graph the data.</p>
 <figure>
-<img src="images/eda_panel.png" alt="EDA Panel" /><figcaption aria-hidden="true">EDA Panel</figcaption>
+<img src="images/eda_panel.png" alt="EDA Panel" />
+<figcaption aria-hidden="true">EDA Panel</figcaption>
 </figure>
-<p>These values can be controlled to display what is graphed. For example, if the user does not wish to graph data from Squaw Valley, they can delete it then that data will not be displayed. There is also the ability to adjust the X axis to control the number of year’s being plotted.</p>
-<p>This web application was built entirely using the R programming language. There is a framework called shiny that translates the R code into HTML, bootstrap CSS, and Javascript. This allows anyone to access the statistical powers of R. Shiny apps are able to be easily hosted using shinyapps.io.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>These values can be controlled to display what is graphed. For
+example, if the user does not wish to graph data from Squaw Valley, they
+can delete it then that data will not be displayed. There is also the
+ability to adjust the X axis to control the number of year’s being
+plotted.</p>
+<p>This web application was built entirely using the R programming
+language. There is a framework called shiny that translates the R code
+into HTML, bootstrap CSS, and Javascript. This allows anyone to access
+the statistical powers of R. Shiny apps are able to be easily hosted
+using shinyapps.io.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
