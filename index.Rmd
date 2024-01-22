@@ -9,6 +9,7 @@ listing:
     - 2022-05-24-weathercollector
     - 2023-01-12-christmas-lights
     - 2023-01-14-gifjifgame
+    - 2024-01-21-finfriends
     - 2022-03-12-td
     - 2022-05-24-convolutions
     - 2022-03-02-scout

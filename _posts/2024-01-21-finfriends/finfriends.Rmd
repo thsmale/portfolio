@@ -1,12 +1,19 @@
-# FinFriends
-
-Fair finances among friends
-
-This web application allows friends to divy up bills from a trip.
+---
+title: "FinFriends"
+description: "Fair finances among friends. A full stack web application to divide up bills from a trip amongst friends"
+author:
+  - name: Tommy Smale
+    url: {}
+date: 2024-01-21
+preview: fin-friends-ui-example.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
 
 ### [-> FinFriends URL](https://finfriends.netlify.app/)
 
-It computes the least amount of transactions required among friends.
+FinFriends computes the least amount of transactions required among friends.
 
 It then displays this data to the user.
 
@@ -23,3 +30,5 @@ There is a backend API server written in the Python framework fastapi.
 The front end sends the bills to the backend server which runs a python script
 to compute the least amount of Venmo's required. It then returns these results
 to the user in the UI.
+
+### [-> FinFriends Source Code](https://github.com/thsmale/trev-final-proj)

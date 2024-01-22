@@ -1,0 +1,12 @@
+name: "Addressible Lights"
+title: "&quot;Adressible Lights&quot;"
+description: |
+  &quot;Adressible Lights&quot;
+output_dir: "_site"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+output: distill::distill_article

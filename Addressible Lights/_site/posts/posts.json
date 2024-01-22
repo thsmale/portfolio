@@ -1,0 +1,19 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to &quot;Adressible Lights&quot;",
+    "description": "Welcome to our new blog, &quot;Adressible Lights&quot;. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2023-01-29",
+    "categories": [],
+    "contents": "\n\n\n\n",
+    "preview": {},
+    "last_modified": "2023-01-29T21:50:57-08:00",
+    "input_file": {}
+  }
+]
