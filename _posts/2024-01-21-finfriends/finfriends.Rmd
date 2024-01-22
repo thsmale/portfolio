@@ -1,0 +1,25 @@
+# FinFriends
+
+Fair finances among friends
+
+This web application allows friends to divy up bills from a trip.
+
+### [-> FinFriends URL](https://finfriends.netlify.app/)
+
+It computes the least amount of transactions required among friends.
+
+It then displays this data to the user.
+
+![Fin Friends UI](./fin-friends-ui-example.png)
+
+This web application is built using React.
+
+The React component library being used is grommet.
+
+React is a Javascript framework for programming front end web applications.
+
+There is a backend API server written in the Python framework fastapi.
+
+The front end sends the bills to the backend server which runs a python script
+to compute the least amount of Venmo's required. It then returns these results
+to the user in the UI.
