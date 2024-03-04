@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2024-03-04-claim3/",
+    "title": "claim3",
+    "description": "The claim3 platform aims to prevent unauthorized use and distribution of copyrighted content, providing content creators with a robust tool for protecting their intellectual property.",
+    "author": [
+      {
+        "name": "Tommy Smale",
+        "url": {
+          "https://claim3.onrender.com": {}
+        }
+      }
+    ],
+    "date": "2024-03-04",
+    "categories": [],
+    "contents": "\nclaim3 is built with a wide variety of technologies including React, Django, Streamlit, PostgreSQL, and AWS.\n* Link to Application: https://claim3.onrender.com\nUsers can view a dashboard which shows analytics of content they have published across the internet.\nThey can filter their analytics based on a variety of social media platforms.\nDashboardIn addition, they can securely upload files which enables claim3 to track their content across the web.\nFile UploadPeople can view content uploaded to claim3 in a social media like feed.\nFeedOne can securely sign in or create an account as shown below.\nLoginSign Up\n\n\n",
+    "preview": "posts/2024-03-04-claim3/images/dashboard.png",
+    "last_modified": "2024-03-04T00:29:07-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2024-01-21-finfriends/",
     "title": "FinFriends",
     "description": "Fair finances among friends. A full stack web application to divide up bills from a trip amongst friends",

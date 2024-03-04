@@ -3,7 +3,7 @@ title: "FinFriends"
 description: "Fair finances among friends. A full stack web application to divide up bills from a trip amongst friends"
 author:
   - name: Tommy Smale
-    url: {}
+    url: {https://finfriends.netlify.app/}
 date: 2024-01-21
 preview: fin-friends-ui-example.png
 output:

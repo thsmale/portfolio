@@ -1,0 +1,42 @@
+---
+title: "claim3"
+description: |
+  The claim3 platform aims to prevent unauthorized use and distribution of copyrighted content, providing content creators with a robust tool for protecting their intellectual property.
+author:
+  - name: Tommy Smale
+    url: {https://claim3.onrender.com}
+date: 2024-03-04
+preview: images/dashboard.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+claim3 is built with a wide variety of technologies including React, Django, Streamlit, PostgreSQL, and AWS.
+
+### * **Link to Application:** <https://claim3.onrender.com>
+
+Users can view a dashboard which shows analytics of content they have published across the internet.
+They can filter their analytics based on a variety of social media platforms.
+
+![Dashboard](images/dashboard.png)
+
+In addition, they can securely upload files which enables claim3 to track their content across the web.
+
+![File Upload](images/file-upload.png)
+
+People can view content uploaded to claim3 in a social media like feed.
+
+![Feed](images/feed.png)
+
+One can securely sign in or create an account as shown below.
+
+![Login](images/sign-in.png)
+
+![Sign Up](images/sign-up.png)
+
+
