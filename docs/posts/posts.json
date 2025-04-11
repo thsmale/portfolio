@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2025-04-10-greenlake-sustainability-dashboard/",
+    "title": "Greenlake Sustainability Dashboard",
+    "description": "A dashboard created for HPE Greenlake to reduce carbon emissions from a data center.",
+    "author": [
+      {
+        "name": "Tommy Smale",
+        "url": "https://emeraldvue-5d3047c5816b.herokuapp.com"
+      }
+    ],
+    "date": "2025-04-10",
+    "categories": [],
+    "contents": "\nIntro\nThis is a dashboard that enables users to reduce carbon emissions from a data center. There are processes in place that capture metrics from compute servers, networking equipment, or storage devices. The algorithm leverages this data to optimize resources, such as idling during periods of low usage, so the machines can have less carbon emissions. This helps save the planet while also reducing cost for data centers, it’s a win win!\nDashboard URL\nNote the URL may take a minute to load.\n\nSource Code\nUsage\nThe following is the view when you open the dashboard.\n\nThe algorithm will then show you the optimizations to compute resources or carbon emissions it is able to make. It will ask for confirmation before making the changes.\n\nDesign\nThe dashboard was built using the React component library Grommet. For UX inspiration the HPE design system was referenced. My friend and collegue Preston Massey-Blake made substantial contributions. The following is a high level overview of the architecture used to build this application.\nArchitecture\n\n\n",
+    "preview": "posts/2025-04-10-greenlake-sustainability-dashboard/images/dashboard.png",
+    "last_modified": "2025-04-10T22:53:43-07:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2024-03-04-claim3/",
     "title": "claim3",
     "description": "The claim3 platform aims to prevent unauthorized use and distribution of copyrighted content, providing content creators with a robust tool for protecting their intellectual property.",
