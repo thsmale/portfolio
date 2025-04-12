@@ -6,7 +6,7 @@
       "description": "Just a little bit. \n",
       "author": [],
       "contents": "\nHello there, I am a recent graduate from Chico State with a Bachelors of Science in Computer Science and a certificate in Data Science. John Wooden said “Sucess is peace of mind which is a direct result of self-satisfaction in knowing you made the effort to become the best of which you are capable.” Building on top of the pyramid of success, I will add value to any team with my cooperation, alertness, team spirit, and poise. This means having utmost concern for what’s right rather than who’s right. To constantly be improving myself and the team while putting the team before myself. With an ability to work diligently under pressure and performing at my best every day, I will be a valueable member of your software engineering team.\nPicture of meSkills\n\n\n\n\n",
-      "last_modified": "2025-04-10T22:53:53-07:00"
+      "last_modified": "2025-04-12T00:04:08-07:00"
     },
     {
       "path": "index.html",
@@ -14,13 +14,13 @@
       "description": "Welcome to my portfolio! Click on the links to see demos.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2025-04-10T22:53:54-07:00"
+      "last_modified": "2025-04-12T00:04:09-07:00"
     },
     {
       "path": "README.html",
       "author": [],
       "contents": "\nWebsite is hosted at https://tomportfolio.netlify.app.\nCreating a new blog post\nThe following commands into the R console.\nThis creates a new directory in _posts/ with the template code.\nlibrary(distill)\ncreate_post(\"Project Name\")\nThen add the directory created in _posts/ to index.Rmd.\nThen to build the website fun the following command in R console.\nrmarkdown::render_site()\n\n\n",
-      "last_modified": "2025-04-10T22:53:54-07:00"
+      "last_modified": "2025-04-12T00:04:11-07:00"
     }
   ],
   "collections": ["posts/posts.json"]
