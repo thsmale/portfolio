@@ -6,7 +6,7 @@ author:
   - name: Tommy Smale
     url: https://minechess.vercel.app
 date: 2025-04-11
-preview: images/game.png
+preview: images/color-picker.png
 output:
   distill::distill_article:
     self_contained: false
