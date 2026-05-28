@@ -291,22 +291,5 @@
     "preview": "posts/2022-01-01-ios-dev/swift_images/wrongpassword.png",
     "last_modified": "2026-01-20T00:44:52-08:00",
     "input_file": {}
-  },
-  {
-    "path": "posts/2022-02-01-find-the-giraffe/",
-    "title": "Find the Giraffe",
-    "description": "Refresh the page to play again.",
-    "author": [
-      {
-        "name": "Tommy Smale",
-        "url": {}
-      }
-    ],
-    "date": "2022-02-01",
-    "categories": [],
-    "contents": "\n\nShiny applications not supported in static R Markdown documents\n\n\n\n\n",
-    "preview": {},
-    "last_modified": "2026-01-20T00:44:52-08:00",
-    "input_file": {}
   }
 ]

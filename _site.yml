@@ -3,6 +3,8 @@ title: "Portfolio"
 description: |
   So people can see some programming projects
 output_dir: "docs"
+exclude:
+  - "README.md"
 navbar:
   right:
     - text: "Home"
