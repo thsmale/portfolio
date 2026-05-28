@@ -16,6 +16,7 @@ listing:
     - 2022-03-02-scout
     - 2025-04-11-custom-color-picker
     - 2022-03-02-firehistory
+    - 2026-05-27-naughty-newt
     - 2024-01-21-finfriends
     - 2022-01-01-ios-dev
     - 2022-03-13-react

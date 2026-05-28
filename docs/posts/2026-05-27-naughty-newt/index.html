@@ -20,8 +20,9 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -32,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -88,38 +89,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Portfolio: Custom Color Picker</title>
+<title>Portfolio: Naughty Newt</title>
 
-<meta property="description" itemprop="description" content="A custom color picker I implemented for MineChess to dynamically change the colors of the chess board."/>
+<meta property="description" itemprop="description" content="A CLI form to detect if you are a naughty newt."/>
 
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2025-04-11"/>
-<meta property="article:created" itemprop="dateCreated" content="2025-04-11"/>
+<meta property="article:published" itemprop="datePublished" content="2026-01-01"/>
+<meta property="article:created" itemprop="dateCreated" content="2026-01-01"/>
 <meta name="article:author" content="Tommy Smale"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Portfolio: Custom Color Picker"/>
+<meta property="og:title" content="Portfolio: Naughty Newt"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="A custom color picker I implemented for MineChess to dynamically change the colors of the chess board."/>
+<meta property="og:description" content="A CLI form to detect if you are a naughty newt."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Portfolio"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Portfolio: Custom Color Picker"/>
-<meta property="twitter:description" content="A custom color picker I implemented for MineChess to dynamically change the colors of the chess board."/>
+<meta property="twitter:title" content="Portfolio: Naughty Newt"/>
+<meta property="twitter:description" content="A CLI form to detect if you are a naughty newt."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Custom Color Picker"]},{"type":"character","attributes":{},"value":["A custom color picker I implemented for MineChess to dynamically change the colors of the chess board."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Tommy Smale"]},{"type":"character","attributes":{},"value":["https://minechess.vercel.app"]}]}]},{"type":"character","attributes":{},"value":["2025-04-11"]},{"type":"character","attributes":{},"value":["images/color-picker.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Naughty Newt"]},{"type":"character","attributes":{},"value":["A CLI form to detect if you are a naughty newt."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Tommy Smale"]},{"type":"character","attributes":{},"value":["https://github.com/thsmale/naughty-newt"]}]}]},{"type":"character","attributes":{},"value":["2026-01-01"]},{"type":"character","attributes":{},"value":["images/form.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["custom-color-picker_files/anchor-4.2.2/anchor.min.js","custom-color-picker_files/bowser-1.9.3/bowser.min.js","custom-color-picker_files/distill-2.2.21/template.v2.js","custom-color-picker_files/header-attrs-2.25/header-attrs.js","custom-color-picker_files/jquery-3.6.0/jquery-3.6.0.js","custom-color-picker_files/jquery-3.6.0/jquery-3.6.0.min.js","custom-color-picker_files/jquery-3.6.0/jquery-3.6.0.min.map","custom-color-picker_files/popper-2.6.0/popper.min.js","custom-color-picker_files/tippy-6.2.7/tippy-bundle.umd.min.js","custom-color-picker_files/tippy-6.2.7/tippy-light-border.css","custom-color-picker_files/tippy-6.2.7/tippy.css","custom-color-picker_files/tippy-6.2.7/tippy.umd.min.js","custom-color-picker_files/webcomponents-2.0.0/webcomponents.js","dist/assets/index-DllZpfxb.js","dist/assets/index-DRVbDqGZ.css","dist/index.html","dist/vite.svg","images/color-picker.png","images/game.png","images/home.png"]}
+  {"type":"character","attributes":{},"value":["images/form.png","images/progress-bar.png","images/results.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2417,7 +2418,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.25/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.31/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2438,7 +2439,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Custom Color Picker","description":"A custom color picker I implemented for MineChess to dynamically change the colors of the chess board.","authors":[{"author":"Tommy Smale","authorURL":"https://minechess.vercel.app","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2025-04-11T00:00:00.000-07:00","citationText":"Smale, 2025"}
+{"title":"Naughty Newt","description":"A CLI form to detect if you are a naughty newt.","authors":[{"author":"Tommy Smale","authorURL":"https://github.com/thsmale/naughty-newt","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2026-01-01T00:00:00.000-08:00","citationText":"Smale, 2026"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2463,38 +2464,39 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Custom Color Picker</h1>
+<h1>Naughty Newt</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>A custom color picker I implemented for MineChess to dynamically change the colors of the chess board.</p></p>
+<p><p>A CLI form to detect if you are a naughty newt.</p></p>
 </div>
 
 <div class="d-byline">
-  Tommy Smale <a href="https://minechess.vercel.app" class="uri">https://minechess.vercel.app</a> 
+  Tommy Smale <a href="https://github.com/thsmale/naughty-newt" class="uri">https://github.com/thsmale/naughty-newt</a> 
   
-<br/>2025-04-11
+<br/>2026-01-01
 </div>
 
 <div class="d-article">
 <h1 id="intro">Intro</h1>
-<p>Minechess is chess with a twist. Each turn, players are able to place a mine at one of the open squares. The location of this mine is hidden to the opponent. If the opponent moves their piece to the location where the mine was placed, their piece is eliminated or removed from the board.</p>
-<ul>
-<li><a href="https://minechess.vercel.app/">MineChess URL</a></li>
-<li><a href="https://github.com/thsmale/minechess-color-picker">Custom Color Picker Source Code</a></li>
-</ul>
-<p>This application was primarily developed by <a href="https://github.com/benbeisheim">Ben Beisheim</a> and <a href="https://www.linkedin.com/in/trevor-woon-1a5abb17a/">Trevor Woon</a>. The rest of this post will focus on my contribution to the application which is the color picker.</p>
-<p><img src="images/home.png" alt="Homepage" />
-<img src="images/game.png" alt="Initial game view" /></p>
-<h2 id="designimplementation">Design/Implementation</h2>
-<p>Initially I was going to go with the html <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/color">input</a> element of type color. However, it was difficult to customize for an optimal user experience on MineChess. So I decided to leverage <a href="https://react-spectrum.adobe.com/react-aria/components.html">React Aria</a> since these components aligned more with what I was trying to accomplish. React Aria was chosen over React Spectrum because it was more flexible in it’s customization options.</p>
-<p>One of the main constraints I implemented is a restriction on color selection. Since it’s customary for a chess board to have a light and dark side to distinguish between players, users must choose a primary color using the hue slider, then adjust the light and dark variants from that base. This means players can’t make one side green and the other blue. While it’s technically possible to set both sides to the same color, it certainly isn’t recommended!</p>
-<h2 id="usage">Usage</h2>
-<p>Below is a mini interactive example of how the custom color picker works. Make sure to head over to MineChess and play your friends!</p>
-<iframe src="./dist/index.html" width="100%" height="600px" frameborder="0">
-</iframe>
-<h2 id="next-steps">Next steps</h2>
-<p>A future feature to add to the custom color picker would be having the ability to save color combinations you have previously set. Players will be disappointed to find the color combination they created is no longer there when they reload the page. They may not remember what that exact color combo was and may always wish they could recreate that perfect color combo. This could be implemented by utilizing cookies or creating some backend service that stores previously set color combos for the player.</p>
+<p>Naughty Newt is a terminal-based UI application that accepts some input, processes it, then returns whether or not you are a naught newt. Underneath the hood, it uses the <a href="https://people.redhat.com/rjones/ocaml-newt/html/Newt.html">Newt</a> module and C programming language to build the user interface. Linux administration tools like NetworkManager <code>nmtui</code> use software like Newt so a user can configure WiFi connections using a UI.</p>
+<h2 id="form">Form</h2>
+<p>The form application uses a few essential Newt components. It uses the form component which can contain multiple sub components used to collect information. The sub components are a text box which is used as a title for the form. A text input to collect information a user types from a keyboard. A check box so the user can set a boolean true/false value. A radio button so a user can select one option from multiple provided options. Then a couple of buttons to submit the form or exit out of the application. The UI components available in Newt are very similar to that of web development!
+<img src="images/form.png" alt="The Form UI" /></p>
+<h2 id="scale">Scale</h2>
+<p>Once a user presses the form submit button, they are presented with a second window that tells the user the application is processing their results. This uses the scale component from Newt which is the same thing as a progress bar. The purpose of this is to simulate that a very complex algorithm is currently processing their results to determine if they are a naughty newt. In reality, there is a very simple algorithm that takes less than a blink of an eye to determine if the user is a naughty newt based on their form results. The progress bar takes a few seconds to complete and over the course of this time it fills out the process bar from 0% to 100%.</p>
+<figure>
+<img src="images/progress-bar.png" alt="Scale" />
+<figcaption aria-hidden="true">Scale</figcaption>
+</figure>
+<h2 id="results">Results</h2>
+<p>When we are done processing the users input to determine if they are a naughty newt, we display their results in a new window using a text input. There is also a button so the user can exit the application.</p>
+<figure>
+<img src="images/results.png" alt="Results" />
+<figcaption aria-hidden="true">Results</figcaption>
+</figure>
+<h2 id="source-code">Source Code</h2>
+<p>Navigate over to the <a href="https://github.com/thsmale/naughty-newt">GitHub repository</a> to view the source code and run the application on your local computer. In the repository you will see references to Newt guides and documentation to learn how to use the module. There are also several code examples for an entry box, button, radio button, etc so developers can get started quickly to build their own Newt application.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
