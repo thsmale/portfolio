@@ -5,12 +5,13 @@ description: |
 site: distill::distill_website
 listing: 
   posts: 
-    - 2022-03-02-checkers
+    - 2026-05-27-eucharistic-miracles
     - 2022-05-24-weathercollector
-    - 2025-04-10-greenlake-sustainability-dashboard
-    - 2023-01-14-gifjifgame
-    - 2022-05-24-convolutions
     - 2026-05-27-usa-spending-assistant
+    - 2022-05-24-convolutions
+    - 2023-01-14-gifjifgame
+    - 2022-03-02-checkers
+    - 2025-04-10-greenlake-sustainability-dashboard
     - 2022-03-12-td
     - 2023-01-12-christmas-lights
     - 2022-03-02-scout
