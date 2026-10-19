@@ -10,9 +10,10 @@ listing:
     - 2026-08-30-home-server
     - 2022-05-24-convolutions
     - 2023-01-14-gifjifgame
+    - 2026-10-17-aruba
     - 2025-04-10-greenlake-sustainability-dashboard
-    - 2023-01-12-christmas-lights
     - 2022-05-24-weathercollector
+    - 2023-01-12-christmas-lights
     - 2022-03-02-scout
     - 2022-03-02-firehistory
     - 2026-05-27-naughty-newt
